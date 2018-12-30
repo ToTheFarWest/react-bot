@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ToTheFarWest/react-bot#readme",
   "dependencies": {
-    "discord.js": "^11.4.2"
+    "discord.js": "^11.4.2",
+    "node-emoji": "^1.8.1"
   }
 }

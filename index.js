@@ -1,5 +1,6 @@
 const { Client } = require('discord.js')
 const config = require('./config.json')
+const emoji = require('node-emoji')
 
 const client = new Client()
 
@@ -13,13 +14,9 @@ client.on('message', (message) => {
     config.channels.forEach(channel => {
         if (message.channel.id === channel.id) {
             console.log("Channel found!")
-            console.log(channel)
-            console.log(client.emojis.find('name', 'x'))
-            emojis = channel.reacts.map(name => {client.emojis.find(emoji => emoji.name === name)})
-            console.log(emojis)
-            emojis.forEach(emoji => {
-                console.log("Adding emoji " + emoji.name)
-                message.react(emoji)
+            channel.reacts.forEach(name => {
+              react = client.emojis.find(e => e.name === name) || emoji.get(name)
+              message.react(react)
             })
         }
     });
