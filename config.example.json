@@ -1,0 +1,13 @@
+{
+    "token": "YOUR USER TOKEN",
+    "channels": [
+        {
+            "id": "YOUR CHANNEL ID",
+            "reacts": ["emojiname1", "emojiname2"]
+        },
+        {
+            "id": "ANOTHER CHANNEL ID",
+            "reacts": ["moreemojinames", "withoutthecolons"]
+        }
+    ]
+}
