@@ -10,13 +10,18 @@ client.on('ready', () => {
 
 client.on('message', (message) => {
     if (message.author.bot) return
-    console.log("message recieved")
+    console.log(message.content)
+    // console.log("message recieved")
     config.channels.forEach(channel => {
         if (message.channel.id === channel.id) {
-            console.log("Channel found!")
+            // console.log("Channel found!")
             channel.reacts.forEach(name => {
               react = client.emojis.find(e => e.name === name) || emoji.get(name)
               message.react(react)
+                .catch(e => {
+                  console.log('Message deleted before operation could be completed...')
+                  return
+                })
             })
         }
     });
